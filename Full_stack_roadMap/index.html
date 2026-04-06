@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Stack Web Development Roadmap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+        }
+        
+        .timeline {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.3em;
+        }
+        
+        .phase {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+        
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .phase-number {
+            background: #667eea;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        
+        .phase-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        
+        .phase-duration {
+            background: #d4edda;
+            color: #155724;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-left: auto;
+        }
+        
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .topic-card {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .topic-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .topic-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .topic-desc {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        
+        .topic-items {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .topic-items li {
+            padding: 5px 0;
+            color: #34495e;
+        }
+        
+        .topic-items li:before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .important {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .important strong {
+            color: #856404;
+        }
+        
+        .tech-stack {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .tech-badge {
+            background: #667eea;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .projects-section {
+            background: #e7f3ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .project-list {
+            margin: 15px 0;
+        }
+        
+        .project-item {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #2196F3;
+        }
+        
+        .salary-info {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .salary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .salary-card {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .salary-number {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        
+        h2 {
+            color: #34495e;
+            margin: 40px 0 20px 0;
+            padding-left: 15px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .resource-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .warning {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            color: #721c24;
+        }
+        
+        .tip {
+            background: #d1ecf1;
+            border-left: 4px solid #0c5460;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            color: #0c5460;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Full Stack Web Development Roadmap</h1>
+        <p class="subtitle">Complete Guide from Zero to Hero</p>
+        
+        <div class="timeline">
+            ⏱️ Total Time: 6-12 Months (Depending on daily hours)
+        </div>
+
+        <div class="important">
+            <strong>⚡ What is Full Stack Development?</strong><br>
+            Building BOTH the frontend (what users see) AND backend (server, database) of websites/apps.
+            <br><br>
+            <strong>Frontend:</strong> HTML, CSS, JavaScript, React<br>
+            <strong>Backend:</strong> Node.js/Python, Database, APIs<br>
+            <strong>Other:</strong> Git, Deployment, Testing
+        </div>
+
+        <!-- PHASE 1: FRONTEND BASICS -->
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-number">1</div>
+                <div class="phase-title">Frontend Basics</div>
+                <div class="phase-duration">⏱️ Month 1-2</div>
+            </div>
+            
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <div class="topic-icon">📝</div>
+                    <div class="topic-name">HTML5</div>
+                    <div class="topic-desc">Structure of web pages</div>
+                    <ul class="topic-items">
+                        <li>Semantic HTML</li>
+                        <li>Forms & Input</li>
+                        <li>Tables</li>
+                        <li>Images & Media</li>
+                        <li>Links & Navigation</li>
+                        <li>Meta tags & SEO</li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-icon">🎨</div>
+                    <div class="topic-name">CSS3</div>
+                    <div class="topic-desc">Styling & Layout</div>
+                    <ul class="topic-items">
+                        <li>Selectors & Properties</li>
+                        <li>Box Model</li>
+                        <li>Flexbox ⭐</li>
+                        <li>CSS Grid ⭐</li>
+                        <li>Responsive Design</li>
+                        <li>Animations</li>
+                        <li>Sass/SCSS (optional)</li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-icon">⚡</div>
+                    <div class="topic-name">JavaScript Basics</div>
+                    <div class="topic-desc">Programming fundamentals</div>
+                    <ul class="topic-items">
+                        <li>Variables & Data Types</li>
+                        <li>Functions</li>
+                        <li>Loops & Conditions</li>
+                        <li>Arrays & Objects</li>
+                        <li>ES6+ Features</li>
+                        <li>DOM Manipulation</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="projects-section">
+                <strong>🎯 Projects to Build:</strong>
+                <div class="project-list">
+                    <div class="project-item">1. Personal Portfolio Website</div>
+                    <div class="project-item">2. Landing Page (responsive)</div>
+                    <div class="project-item">3. Calculator</div>
+                    <div class="project-item">4. To-Do List App</div>
+                    <div class="project-item">5. Clone a simple website (Netflix homepage)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 2: FRONTEND ADVANCED -->
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-number">2</div>
+                <div class="phase-title">Advanced Frontend</div>
+                <div class="phase-duration">⏱️ Month 3-4</div>
+            </div>
+            
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <div class="topic-icon">⚛️</div>
+                    <div class="topic-name">React.js ⭐⭐⭐</div>
+                    <div class="topic-desc">Most popular frontend framework</div>
+                    <ul class="topic-items">
+                        <li>Components & JSX</li>
+                        <li>Props & State</li>
+                        <li>Hooks (useState, useEffect)</li>
+                        <li>React Router</li>
+                        <li>Context API</li>
+                        <li>Forms & Events</li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-icon">📦</div>
+                    <div class="topic-name">State Management</div>
+                    <div class="topic-desc">Managing app data</div>
+                    <ul class="topic-items">
+                        <li>Redux (traditional)</li>
+                        <li>Redux Toolkit ⭐</li>
+                        <li>Zustand (simpler)</li>
+                        <li>Context API</li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-icon">🌐</div>
+                    <div class="topic-name">HTTP & APIs</div>
+                    <div class="topic-desc">Fetching data</div>
+                    <ul class="topic-items">
+                        <li>Fetch API</li>
+                        <li>Axios</li>
+                        <li>REST APIs</li>
+                        <li>Async/Await</li>
+                        <li>JSON</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="important">
+                <strong>🎯 Alternative to React:</strong><br>
+                Vue.js (easier) or Angular (enterprise) - Pick ONE framework, don't learn all!
+            </div>
+            
+            <div class="projects-section">
+                <strong>🎯 Projects to Build:</strong>
+                <div class="project-list">
+                    <div class="project-item">1. Weather App (using API)</div>
+                    <div class="project-item">2. Movie Search App (TMDB API)</div>
+                    <div class="project-item">3. E-commerce Product Page</div>
+                    <div class="project-item">4. Social Media Dashboard</div>
+                    <div class="project-item">5. Recipe App</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 3: BACKEND BASICS -->
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-number">3</div>
+                <div class="phase-title">Backend Development</div>
+                <div class="phase-duration">⏱️ Month 5-6</div>
+            </div>
+            
+            <div class="important">
+                <strong>⚡ Choose ONE Backend Language:</strong><br>
+                • <strong>Node.js</strong> (JavaScript) - Easiest if you know JS ⭐ RECOMMENDED<br>
+                • <strong>Python</strong> (Django/Flask) - Great for beginners<br>
+                • <strong>PHP</strong> (Laravel) - Still popular<br>
+                • <strong>Java</strong> (Spring Boot) - Enterprise jobs
+            </div>
+            
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <div class="topic-icon">🟢</div>
+                    <div class="topic-name">Node.js & Express ⭐</div>
+                    <div class="topic-desc">JavaScript on server</div>
+                    <ul class="topic-items">
+                        <li>Node.js Basics</li>
+                        <li>NPM Packages</li>
+                        <li>Express.js Framework</li>
+                        <li>Routing</li>
+                        <li>Middleware</li>
+                        <li>REST API Creation</li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-icon">🗄️</div>
+                    <div class="topic-name">Databases ⭐⭐⭐</div>
+                    <div class="topic-desc">Storing data</div>
+                    <ul class="topic-items">
+                        <li><strong>MongoDB</strong> (NoSQL) ⭐</li>
+                        <li><strong>PostgreSQL</strong> (SQL)</li>
+                        <li>MySQL (SQL)</li>
+                        <li>Mongoose (MongoDB ODM)</li>
+                        <li>CRUD Operations</li>
+                        <li>Database Design</li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-icon">🔐</div>
+                    <div class="topic-name">Authentication ⭐⭐</div>
+                    <div class="topic-desc">User login/security</div>
+                    <ul class="topic-items">
+                        <li>JWT (JSON Web Tokens)</li>
+                        <li>Bcrypt (Password Hashing)</li>
+                        <li>Sessions & Cookies</li>
+                        <li>OAuth (Google/FB Login)</li>
+                        <li>Passport.js</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="projects-section">
+                <strong>🎯 Projects to Build:</strong>
+                <div class="project-list">
+                    <div class="project-item">1. REST API for Todo App</div>
+                    <div class="project-item">2. User Authentication System</div>
+                    <div class="project-item">3. Blog with CRUD operations</div>
+                    <div class="project-item">4. File Upload System</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 4: FULL STACK INTEGRATION -->
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-number">4</div>
+                <div class="phase-title">Full Stack Integration</div>
+                <div class="phase-duration">⏱️ Month 7-8</div>
+            </div>
+            
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <div class="topic-icon">🔗</div>
+                    <div class="topic-name">Connect Frontend + Backend</div>
+                    <div class="topic-desc">Making them work together</div>
+                    <ul class="topic-items">
+                        <li>CORS Setup</li>
+                        <li>API Integration</li>
+                        <li>Proxy Configuration</li>
+                        <li>Environment Variables</li>
+                        <li>Error Handling</li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-icon">🚀</div>
+                    <div class="topic-name">Deployment ⭐⭐</div>
+                    <div class="topic-desc">Make it live!</div>
+                    <ul class="topic-items">
+                        <li>Vercel (Frontend)</li>
+                        <li>Netlify (Frontend)</li>
+                        <li>Render (Backend)</li>
+                        <li>Railway (Backend)</li>
+                        <li>MongoDB Atlas (Database)</li>
+                        <li>Domain & DNS</li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-icon">🔧</div>
+                    <div class="topic-name">Developer Tools</div>
+                    <div class="topic-desc">Essential tools</div>
+                    <ul class="topic-items">
+                        <li>Git & GitHub ⭐⭐⭐</li>
+                        <li>VS Code</li>
+                        <li>Chrome DevTools</li>
+                        <li>Postman (API Testing)</li>
+                        <li>npm/yarn</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="projects-section">
+                <strong>🎯 Full Stack Projects:</strong>
+                <div class="project-list">
+                    <div class="project-item">1. <strong>E-commerce Store</strong> (Products, Cart, Checkout, Payment)</div>
+                    <div class="project-item">2. <strong>Social Media App</strong> (Posts, Comments, Likes, Follow)</div>
+                    <div class="project-item">3. <strong>Chat Application</strong> (Real-time messaging)</div>
+                    <div class="project-item">4. <strong>Project Management Tool</strong> (Trello clone)</div>
+                    <div class="project-item">5. <strong>Job Board</strong> (Post jobs, Apply, Admin panel)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHASE 5: ADVANCED TOPICS -->
+        <div class="phase">
+            <div class="phase-header">
+                <div class="phase-number">5</div>
+                <div class="phase-title">Advanced & Professional</div>
+                <div class="phase-duration">⏱️ Month 9-12</div>
+            </div>
+            
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <div class="topic-icon">⚡</div>
+                    <div class="topic-name">Next.js ⭐⭐</div>
+                    <div class="topic-desc">React framework (SSR, SSG)</div>
+                    <ul class="topic-items">
+                        <li>Server-Side Rendering</li>
+                        <li>Static Generation</li>
+                        <li>API Routes</li>
+                        <li>File-based Routing</li>
+                        <li>SEO Optimization</li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-icon">🐳</div>
+                    <div class="topic-name">DevOps Basics</div>
+                    <div class="topic-desc">Professional deployment</div>
+                    <ul class="topic-items">
+                        <li>Docker</li>
+                        <li>CI/CD (GitHub Actions)</li>
+                        <li>Linux Basics</li>
+                        <li>Nginx</li>
+                        <li>AWS/Digital Ocean</li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-icon">🧪</div>
+                    <div class="topic-name">Testing</div>
+                    <div class="topic-desc">Writing tests</div>
+                    <ul class="topic-items">
+                        <li>Jest (Unit Tests)</li>
+                        <li>React Testing Library</li>
+                        <li>Cypress (E2E)</li>
+                        <li>Supertest (API Testing)</li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-icon">⚡</div>
+                    <div class="topic-name">Performance</div>
+                    <div class="topic-desc">Make it fast!</div>
+                    <ul class="topic-items">
+                        <li>Code Splitting</li>
+                        <li>Lazy Loading</li>
+                        <li>Caching</li>
+                        <li>Image Optimization</li>
+                        <li>SEO Best Practices</li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-icon">🔌</div>
+                    <div class="topic-name">WebSockets</div>
+                    <div class="topic-desc">Real-time features</div>
+                    <ul class="topic-items">
+                        <li>Socket.io</li>
+                        <li>Real-time Chat</li>
+                        <li>Live Notifications</li>
+                        <li>Collaborative Features</li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-icon">💳</div>
+                    <div class="topic-name">Payment Integration</div>
+                    <div class="topic-desc">Accept payments</div>
+                    <ul class="topic-items">
+                        <li>Stripe</li>
+                        <li>PayPal</li>
+                        <li>Razorpay</li>
+                        <li>Payment Flow</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2>🛠️ Complete Tech Stack (MERN Stack - Most Popular)</h2>
+        <div class="tech-stack">
+            <div class="tech-badge">MongoDB</div>
+            <div class="tech-badge">Express.js</div>
+            <div class="tech-badge">React.js</div>
+            <div class="tech-badge">Node.js</div>
+            <div class="tech-badge">Git & GitHub</div>
+            <div class="tech-badge">VS Code</div>
+            <div class="tech-badge">Postman</div>
+            <div class="tech-badge">Vercel/Netlify</div>
+        </div>
+
+        <div class="salary-info">
+            <h2 style="color: white; border: none; padding: 0; margin-bottom: 20px;">💰 Salary Expectations</h2>
+            <div class="salary-grid">
+                <div class="salary-card">
+                    <div>Junior Developer</div>
+                    <div class="salary-number">$40K-$70K</div>
+                    <div>0-1 year</div>
+                </div>
+                <div class="salary-card">
+                    <div>Mid-Level</div>
+                    <div class="salary-number">$70K-$110K</div>
+                    <div>1-3 years</div>
+                </div>
+                <div class="salary-card">
+                    <div>Senior</div>
+                    <div class="salary-number">$110K-$180K+</div>
+                    <div>3+ years</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>📚 Best Free Resources</h2>
+        <div class="resource-box">
+            <strong>Learning Platforms:</strong>
+            <ul style="margin: 15px 0 15px 30px;">
+                <li><strong>FreeCodeCamp</strong> - Complete curriculum (100% free) ⭐⭐⭐</li>
+                <li><strong>The Odin Project</strong> - Full stack path ⭐⭐⭐</li>
+                <li><strong>MDN Web Docs</strong> - Best documentation</li>
+                <li><strong>YouTube:</strong> Traversy Media, Web Dev Simplified, Net Ninja</li>
+                <li><strong>Scrimba</strong> - Interactive learning</li>
+            </ul>
+            
+            <strong style="margin-top: 20px; display: block;">Practice Platforms:</strong>
+            <ul style="margin: 15px 0 15px 30px;">
+                <li><strong>Frontend Mentor</strong> - Real project designs</li>
+                <li><strong>LeetCode</strong> - Algorithm practice</li>
+                <li><strong>CodeWars</strong> - Coding challenges</li>
+            </ul>
+        </div>
+
+        <h2>⚠️ Common Mistakes to Avoid</h2>
+        <div class="warning">
+            <strong>DON'T DO THIS:</strong>
+            <ul style="margin: 10px 0 0 20px;">
+                <li>❌ Tutorial hell - watching 100 tutorials without building</li>
+                <li>❌ Learning too many technologies at once</li>
+                <li>❌ Not building projects</li>
+                <li>❌ Copy-pasting code without understanding</li>
+                <li>❌ Skipping Git/GitHub</li>
+                <li>❌ Not deploying projects</li>
+                <li>❌ Perfectionism - waiting for perfect code before moving on</li>
+            </ul>
+        </div>
+
+        <h2>✅ Best Practices</h2>
+        <div class="tip">
+            <strong>DO THIS INSTEAD:</strong>
+            <ul style="margin: 10px 0 0 20px;">
+                <li>✅ Build projects immediately after learning</li>
+                <li>✅ Code daily (even 30 minutes)</li>
+                <li>✅ Master ONE thing before moving to next</li>
+                <li>✅ Use Git from day one</li>
+                <li>✅ Deploy every project (put it live!)</li>
+                <li>✅ Read documentation</li>
+                <li>✅ Ask questions (StackOverflow, Discord)</li>
+                <li>✅ Join developer communities</li>
+            </ul>
+        </div>
+
+        <h2>📅 Daily Learning Routine</h2>
+        <div class="resource-box">
+            <strong>2-3 Hours Daily Plan:</strong>
+            <ul style="margin: 15px 0 15px 30px;">
+                <li><strong>30 min:</strong> Learn new concept (watch tutorial/read docs)</li>
+                <li><strong>60 min:</strong> Code what you learned (practice)</li>
+                <li><strong>30 min:</strong> Work on current project</li>
+                <li><strong>30 min:</strong> Code challenges (optional)</li>
+            </ul>
+            
+            <strong style="margin-top: 20px; display: block;">Weekly Goals:</strong>
+            <ul style="margin: 15px 0 15px 30px;">
+                <li>Complete 1 small project OR major progress on big project</li>
+                <li>Push code to GitHub daily</li>
+                <li>Review and refactor old code</li>
+            </ul>
+        </div>
+
+        <h2>🎯 Portfolio Projects (Must Have)</h2>
+        <div class="projects-section">
+            <div class="project-list">
+                <div class="project-item">
+                    <strong>1. E-commerce Store</strong> (Products, Cart, Payment, Admin)<br>
+                    <small>Shows: CRUD, Auth, Payment Integration, File Upload</small>
+                </div>
+                <div class="project-item">
+                    <strong>2. Social Media App</strong> (Posts, Comments, Likes, Follow)<br>
+                    <small>Shows: Real-time features, Authentication, Complex state</small>
+                </div>
+                <div class="project-item">
+                    <strong>3. Chat Application</strong> (Real-time messaging)<br>
+                    <small>Shows: WebSockets, Real-time updates</small>
+                </div>
+                <div class="project-item">
+                    <strong>4. Project Management Tool</strong> (Trello/Jira clone)<br>
+                    <small>Shows: Drag & drop, Complex UI, Team features</small>
+                </div>
+                <div class="project-item">
+                    <strong>5. Your Own Idea!</strong> (Something you're passionate about)<br>
+                    <small>This stands out the most!</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="salary-info">
+            <h2 style="color: white; border: none; padding: 0; margin-bottom: 20px;">🎯 Timeline Summary</h2>
+            <div style="text-align: left; margin-top: 20px; font-size: 1.1em;">
+                <strong>Month 1-2:</strong> HTML, CSS, JavaScript Basics<br>
+                <strong>Month 3-4:</strong> React.js, Advanced JS, APIs<br>
+                <strong>Month 5-6:</strong> Node.js, Express, MongoDB, Auth<br>
+                <strong>Month 7-8:</strong> Full Stack Projects, Deployment<br>
+                <strong>Month 9-12:</strong> Advanced Topics, Portfolio, Job Ready!<br><br>
+                <strong style="font-size: 1.3em;">After 6-12 months: Ready for Junior Developer Jobs! 🚀</strong>
+            </div>
+        </div>
+
+        <div class="important" style="text-align: center; font-size: 1.2em;">
+            <strong>🔥 The Golden Rule:</strong><br><br>
+            20% Learning, 80% Building<br><br>
+            Don't just watch tutorials - BUILD PROJECTS!<br>
+            Your portfolio projects get you hired, not certificates.
+        </div>
+    </div>
+</body>
+</html>
